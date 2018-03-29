@@ -3,11 +3,11 @@ FROM ubuntu:16.04
 ENV QT_VERSION v5.9.1
 ENV QT_CREATOR_VERSION v4.3.1
 
-RUN apt-get -y upgrade
 RUN apt-get -y update
+RUN apt-get -y upgrade
 
 # Build prerequisites
-RUN apt-get -y build-dep qt5-default
+RUN apt-get -y install qt5-default make g++ python
 RUN apt-get -y install libxcb-xinerama0-dev
 
 # Other useful tools
