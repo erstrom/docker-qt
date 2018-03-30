@@ -3,15 +3,18 @@ FROM ubuntu:16.04
 ENV QT_VERSION v5.9.1
 ENV QT_CREATOR_VERSION v4.3.1
 
-RUN apt-get -y upgrade
-RUN apt-get -y update
-
 # Build prerequisites
-RUN apt-get -y build-dep qt5-default
-RUN apt-get -y install libxcb-xinerama0-dev
+RUN apt-get -y update && apt-get -y install qtbase5-dev \
+	libxcb-xinerama0-dev \
+	build-essential \
+	python
 
 # Other useful tools
-RUN apt-get -y install tmux wget zip git vim
+RUN apt-get -y update && apt-get -y install tmux \
+	wget \
+	zip \
+	git \
+	vim
 
 # Simple root password in case we want to customize the container
 RUN echo "root:root" | chpasswd
