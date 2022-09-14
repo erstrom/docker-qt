@@ -1,13 +1,14 @@
-FROM ubuntu:16.04
+FROM ubuntu:22.04
 
-ENV QT_VERSION v5.9.1
-ENV QT_CREATOR_VERSION v4.3.1
+ENV QT_VERSION v6.3.2
+ENV QT_CREATOR_VERSION v8.0.1
 
 # Build prerequisites
 RUN apt-get -y update && apt-get -y install qtbase5-dev \
 	libxcb-xinerama0-dev \
 	build-essential \
-	python
+	python3 \
+	cmake
 
 # Other useful tools
 RUN apt-get -y update && apt-get -y install tmux \
